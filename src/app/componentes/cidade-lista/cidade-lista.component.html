@@ -1,0 +1,57 @@
+<h2>Cidades</h2>
+<br>
+<button 
+  type="button" 
+  class="btn btn-primary" 
+  [routerLink]="['/cidade-form']" >
+    Novo
+</button>
+<div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>UF</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <body>
+          <tr *ngFor="let cidade of cidadeLista">
+            <td>{{cidade.id}}</td>
+            <td>{{cidade.nome}}</td>
+            <td>{{cidade.uf}}</td>
+            <td>
+              <button type="button" routerLink="/cidade-form/{{cidade.id}}" class="btn btn-primary mr-1" >
+                Alterar
+              </button>
+              <button type="button" class="btn btn-danger" (click)="selecionaCidade(cidade)"
+                data-toggle="modal" data-target="#modalExclusao"
+              >
+                Excluir
+              </button>
+            </td>
+          </tr>
+        </body>        
+      </table>
+    </div>
+</div>
+
+<div id="modalExclusao" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-reader">
+              <h4>Confirmação</h4>
+          </div>
+          <div class="modal-body" *ngIf="cidadeSelecionada" >
+              Confirma a exclusão da Cidade {{cidadeSelecionada.id}} - {{cidadeSelecionada.nome }}
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-sucess" (click)="excluir()" data-dismiss="modal">Confirmar </button>
+              <button class="btn btn-default" data-dismiss="modal">Cancela</button>
+          </div>
+      </div>
+  </div>
+</div>
+

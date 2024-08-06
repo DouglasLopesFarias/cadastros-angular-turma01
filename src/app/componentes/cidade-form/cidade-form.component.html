@@ -1,0 +1,47 @@
+<h1 class="mt-4 ml-5">Cidade </h1>
+
+<div class="container ml-5">
+
+    <form  #cidadeForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" class="form-control" disabled="true" [(ngModel)]="cidade.id" name="id">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">                    
+                    <label>Nome: </label>                    
+                    <input type="text" class="form-control" [(ngModel)]="cidade.nome" name="nome">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">                    
+                    <label>Uf: </label>                    
+                    <input type="text" class="form-control" [(ngModel)]="cidade.uf" name="uf">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i>Salvar
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success" (click)="voltarParaListagem()">
+                    <i class="fa fa-save"></i>Votlar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
